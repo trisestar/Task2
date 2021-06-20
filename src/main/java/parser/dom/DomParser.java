@@ -20,7 +20,7 @@ import java.util.ArrayList;
 
 
 public class DomParser extends AbstractTariffsBuilder {
-    private DocumentBuilder docBuilder;
+    private final DocumentBuilder docBuilder;
 
     public DomParser() throws TariffException {
         tariffs = new ArrayList();
@@ -30,6 +30,13 @@ public class DomParser extends AbstractTariffsBuilder {
         } catch (ParserConfigurationException e) {
             throw new TariffException("Error: " + e);
         }
+    }
+
+    private static String getElementTextContent(Element element, String elementName) {
+        NodeList nodeList = element.getElementsByTagName(elementName);
+        Node node = nodeList.item(0);
+        String text = node.getTextContent();
+        return text;
     }
 
     public void buildSetTariffs(String filePath) throws TariffException {
@@ -59,39 +66,31 @@ public class DomParser extends AbstractTariffsBuilder {
             throw new TariffException("null tariffElem");
         }
         Tariff tariff = new Tariff();
-        tariff.setName(getElementTextContent(tariffElem,"name"));
-        tariff.setOperator(getElementTextContent(tariffElem,"operator"));
-        var bigDecimalBuff = new BigDecimal(getElementTextContent(tariffElem,"payroll"));
+        tariff.setName(getElementTextContent(tariffElem, "name"));
+        tariff.setOperator(getElementTextContent(tariffElem, "operator"));
+        var bigDecimalBuff = new BigDecimal(getElementTextContent(tariffElem, "payroll"));
         tariff.setPayroll(bigDecimalBuff);
 
         Tariff.CallPrices callPrices = tariff.getCallPrices();
 
-        bigDecimalBuff = BigDecimal.valueOf(Double.parseDouble(getElementTextContent(tariffElem,"callPriceInternal")));
+        bigDecimalBuff = BigDecimal.valueOf(Double.parseDouble(getElementTextContent(tariffElem, "callPriceInternal")));
         callPrices.setCallPriceInternal(bigDecimalBuff);
-        bigDecimalBuff = BigDecimal.valueOf(Double.parseDouble(getElementTextContent(tariffElem,"callPriceExternal")));
+        bigDecimalBuff = BigDecimal.valueOf(Double.parseDouble(getElementTextContent(tariffElem, "callPriceExternal")));
         callPrices.setCallPriceExternal(bigDecimalBuff);
-        bigDecimalBuff = BigDecimal.valueOf(Double.parseDouble(getElementTextContent(tariffElem,"callPriceStationary")));
+        bigDecimalBuff = BigDecimal.valueOf(Double.parseDouble(getElementTextContent(tariffElem, "callPriceStationary")));
         callPrices.setCallPriceStationary(bigDecimalBuff);
 
-        bigDecimalBuff = BigDecimal.valueOf(Double.parseDouble(getElementTextContent(tariffElem,"smsPrice")));
+        bigDecimalBuff = BigDecimal.valueOf(Double.parseDouble(getElementTextContent(tariffElem, "smsPrice")));
         tariff.setSmsPrice(bigDecimalBuff);
 
         Tariff.Parameters parameters = tariff.getParameters();
         Element parametersElem = (Element) tariffElem.getElementsByTagName("parameters").item(0);
-        parameters.setFavNumbers(Integer.parseInt(getElementTextContent(parametersElem,"favNumbers")));
-        parameters.setTariffication(Tariffication.valueOf(getElementTextContent(parametersElem,"tariffication").toUpperCase()));
-        bigDecimalBuff = BigDecimal.valueOf(Double.parseDouble(getElementTextContent(parametersElem,"firstFee")));
+        parameters.setFavNumbers(Integer.parseInt(getElementTextContent(parametersElem, "favNumbers")));
+        parameters.setTariffication(Tariffication.valueOf(getElementTextContent(parametersElem, "tariffication").toUpperCase()));
+        bigDecimalBuff = BigDecimal.valueOf(Double.parseDouble(getElementTextContent(parametersElem, "firstFee")));
         parameters.setFirstFee(bigDecimalBuff);
 
 
-
         return tariff;
-    }
-
-    private static String getElementTextContent(Element element, String elementName) {
-        NodeList nodeList = element.getElementsByTagName(elementName);
-        Node node = nodeList.item(0);
-        String text = node.getTextContent();
-        return text;
     }
 }

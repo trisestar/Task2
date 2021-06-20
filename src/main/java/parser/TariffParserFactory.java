@@ -8,11 +8,7 @@ import parser.sax.SaxParser;
 import parser.stax.StaxParser;
 
 public class TariffParserFactory {
-    private static Logger logger = LogManager.getLogger();
-
-    private enum TypeParser {
-        SAX, STAX, DOM
-    }
+    private static final Logger logger = LogManager.getLogger();
 
     public static AbstractTariffsBuilder createTariffBuilder(String typeParser) throws TariffException {
         if (typeParser == null || typeParser.isEmpty()) {
@@ -37,5 +33,9 @@ public class TariffParserFactory {
             default -> throw new EnumConstantNotPresentException(
                     type.getDeclaringClass(), type.name());
         }
+    }
+
+    private enum TypeParser {
+        SAX, STAX, DOM
     }
 }

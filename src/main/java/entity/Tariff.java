@@ -73,10 +73,11 @@ public class Tariff {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Tariff tariff = (Tariff) o;
-        return name.equals(tariff.name) && operator.equals(tariff.operator) && payroll.equals(tariff.payroll) && smsPrice.equals(tariff.smsPrice) && callPrices.equals(tariff.callPrices) && parameters.equals(tariff.parameters);
+
+        Tariff tariff = new Tariff();
+        tariff = (Tariff) o;
+
+        return this.name.equals(tariff.name) && this.operator.equals(tariff.operator) && this.payroll.equals(tariff.payroll);
     }
 
     @Override
@@ -144,7 +145,6 @@ public class Tariff {
                     '}';
         }
     }
-
 
 
     public class CallPrices {

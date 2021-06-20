@@ -15,13 +15,13 @@ import java.util.ArrayList;
 
 public class SaxParser extends AbstractTariffsBuilder {
     private XMLReader reader;
-    private TariffHandler handler = new TariffHandler();
+    private final TariffHandler handler = new TariffHandler();
 
     public SaxParser() throws TariffException {
         SAXParserFactory factory = SAXParserFactory.newInstance();
         try {
             SAXParser saxParser = factory.newSAXParser();
-            reader  = saxParser.getXMLReader();
+            reader = saxParser.getXMLReader();
         } catch (SAXException | ParserConfigurationException e) {
             throw new TariffException("Error: " + e);
         }

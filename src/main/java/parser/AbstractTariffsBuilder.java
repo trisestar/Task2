@@ -19,7 +19,7 @@ public abstract class AbstractTariffsBuilder {
     }
 
     public ArrayList getTariffs() {
-        logger.info( tariffs.size() + " tariffs has been loaded");
+        logger.info(tariffs.size() + " tariffs has been loaded");
         return this.tariffs;
     }
 

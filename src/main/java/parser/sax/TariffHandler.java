@@ -15,12 +15,12 @@ import java.util.EnumSet;
 
 
 public class TariffHandler extends DefaultHandler {
-    private static Logger logger = LogManager.getLogger();
-    private ArrayList tariffs;
+    private static final String TARIFF = "tariff";
+    private static final Logger logger = LogManager.getLogger();
+    private final ArrayList tariffs;
     private Tariff current;
     private TariffXmlTag currentXmlTag;
-    private EnumSet<TariffXmlTag> withText;
-    private static final String TARIFF = "tariff";
+    private final EnumSet<TariffXmlTag> withText;
 
     public TariffHandler() {
         tariffs = new ArrayList();
@@ -55,7 +55,7 @@ public class TariffHandler extends DefaultHandler {
 
     public void characters(char[] ch, int start, int length) {
         String data = new String(ch, start, length).strip();
-        if (currentXmlTag!= null) {
+        if (currentXmlTag != null) {
             switch (currentXmlTag) {
                 case NAME -> current.setName(data);
                 case PAYROLL -> current.setPayroll(new BigDecimal(data));

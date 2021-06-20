@@ -18,14 +18,10 @@ public enum TariffXmlTag {
     PARAMETERS("parameters");
 
 
-    private String value;
+    private final String value;
 
     TariffXmlTag(String value) {
         this.value = value;
-    }
-
-    public String getValue() {
-        return value;
     }
 
     public static TariffXmlTag getTag(String line) throws TariffException {
@@ -38,5 +34,9 @@ public enum TariffXmlTag {
             }
         }
         return null;
+    }
+
+    public String getValue() {
+        return value;
     }
 }

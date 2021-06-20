@@ -6,7 +6,7 @@ import org.xml.sax.ErrorHandler;
 import org.xml.sax.SAXParseException;
 
 public class TariffErrorHandler implements ErrorHandler {
-    private static Logger logger = LogManager.getLogger();
+    private static final Logger logger = LogManager.getLogger();
 
     public void warning(SAXParseException e) {
         logger.error(getLineColumnNumber(e) + "-" + e.getMessage());

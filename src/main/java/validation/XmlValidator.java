@@ -2,8 +2,8 @@ package validation;
 
 
 import exception.TariffErrorHandler;
-import org.apache.logging.log4j.Logger;
 import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.xml.sax.SAXException;
 
 import javax.xml.XMLConstants;
@@ -20,7 +20,7 @@ public class XmlValidator {
 
     public static boolean isValid(String pathToXmlFile, String pathToXsdSchema) {
         if (!(CustomFileValidator.isFileValid(pathToXmlFile) && CustomFileValidator.isFileValid(pathToXsdSchema))) {
-            logger.warn("Path to files (xml or xsd) is invalid.");
+            logger.error("Invalid filepath");
             return false;
         }
         boolean answer = true;
@@ -35,10 +35,10 @@ public class XmlValidator {
             validator.validate(source);
         } catch (SAXException e) {
             answer = false;
-            logger.error("XML file invalid " + e);
+            logger.error("Invalid filepath " + e);
         } catch (IOException e) {
             answer = false;
-            logger.error("XML file invalid " + e);
+            logger.error("Invalid filepath " + e);
         }
         return answer;
     }
