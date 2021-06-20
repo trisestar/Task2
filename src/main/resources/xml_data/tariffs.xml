@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tariffs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xmlns="http://www.example.com/tariffs"
+          xsi:schemaLocation="http://www.example.com/tariffs  tariffs.xsd">
+    <tariff tariffId="a1234" starting-date="2002-10-10">
+        <name>Start</name>
+        <operator>Life</operator>
+        <payroll>5</payroll>
+        <callPriceInternal>0.1</callPriceInternal>
+        <callPriceExternal>0.3</callPriceExternal>
+        <callPriceStationary>0.2</callPriceStationary>
+        <smsPrice>0.15</smsPrice>
+        <parameters>
+            <favNumbers>3</favNumbers>
+            <tariffication>minute</tariffication>
+            <firstFee>7</firstFee>
+        </parameters>
+    </tariff>
+
+    <tariff tariffId="a1324" starting-date="2015-12-12">
+        <name>Bezlimitische</name>
+        <operator>MTS</operator>
+        <payroll>21</payroll>
+        <callPriceInternal>0.1</callPriceInternal>
+        <callPriceExternal>0.3</callPriceExternal>
+        <callPriceStationary>0.2</callPriceStationary>
+        <smsPrice>0.15</smsPrice>
+        <parameters>
+            <favNumbers>5</favNumbers>
+            <tariffication>minute</tariffication>
+            <firstFee>5</firstFee>
+        </parameters>
+    </tariff>
+
+    <tariff tariffId="a1323" starting-date="2015-02-02">
+        <name>NoLimits</name>
+        <operator>MTS</operator>
+        <payroll>30</payroll>
+        <callPriceInternal>0</callPriceInternal>
+        <callPriceExternal>0.3</callPriceExternal>
+        <callPriceStationary>0.3</callPriceStationary>
+        <smsPrice>0.3</smsPrice>
+        <parameters>
+            <favNumbers>0</favNumbers>
+            <tariffication>minute</tariffication>
+            <firstFee>5</firstFee>
+        </parameters>
+    </tariff>
+
+    <tariff tariffId="a1456" starting-date="2015-12-22">
+        <name>NoPayroll</name>
+        <operator>MTS</operator>
+        <payroll>0</payroll>
+        <callPriceInternal>0.2</callPriceInternal>
+        <callPriceExternal>0.6</callPriceExternal>
+        <callPriceStationary>0.4</callPriceStationary>
+        <smsPrice>0.3</smsPrice>
+        <parameters>
+            <favNumbers>2</favNumbers>
+            <tariffication>minute</tariffication>
+            <firstFee>5</firstFee>
+        </parameters>
+    </tariff>
+
+    <tariff tariffId="a1457" starting-date="2019-07-01">
+        <name>FreeCalls</name>
+        <operator>MTS</operator>
+        <payroll>18</payroll>
+        <callPriceInternal>0</callPriceInternal>
+        <callPriceExternal>0</callPriceExternal>
+        <callPriceStationary>0</callPriceStationary>
+        <smsPrice>0.2</smsPrice>
+        <parameters>
+            <favNumbers>0</favNumbers>
+            <tariffication>minute</tariffication>
+            <firstFee>7</firstFee>
+        </parameters>
+    </tariff>
+
+    <tariff tariffId="a1876" starting-date="2015-12-12">
+        <name>Business-1</name>
+        <operator>MTS</operator>
+        <payroll>40</payroll>
+        <callPriceInternal>0.01</callPriceInternal>
+        <callPriceExternal>0.03</callPriceExternal>
+        <callPriceStationary>0.02</callPriceStationary>
+        <smsPrice>0.01</smsPrice>
+        <parameters>
+            <favNumbers>10</favNumbers>
+            <tariffication>twelve_sec</tariffication>
+            <firstFee>0</firstFee>
+        </parameters>
+    </tariff>
+
+    <tariff tariffId="a1877" starting-date="2015-12-12">
+        <name>Business-2</name>
+        <operator>MTS</operator>
+        <payroll>60</payroll>
+        <callPriceInternal>0.01</callPriceInternal>
+        <callPriceExternal>0.01</callPriceExternal>
+        <callPriceStationary>0.01</callPriceStationary>
+        <smsPrice>0.01</smsPrice>
+        <parameters>
+            <favNumbers>10</favNumbers>
+            <tariffication>twelve_sec</tariffication>
+            <firstFee>0</firstFee>
+        </parameters>
+    </tariff>
+
+    <tariff tariffId="a1878" starting-date="2015-12-12">
+        <name>Business-3</name>
+        <operator>MTS</operator>
+        <payroll>100</payroll>
+        <callPriceInternal>0</callPriceInternal>
+        <callPriceExternal>0.01</callPriceExternal>
+        <callPriceStationary>0.01</callPriceStationary>
+        <smsPrice>0</smsPrice>
+        <parameters>
+            <favNumbers>10</favNumbers>
+            <tariffication>twelve_sec</tariffication>
+            <firstFee>0</firstFee>
+        </parameters>
+    </tariff>
+
+    <tariff tariffId="a1354" starting-date="2006-11-11">
+        <name>NaSvyazy</name>
+        <operator>A1</operator>
+        <payroll>10</payroll>
+        <callPriceInternal>0.1</callPriceInternal>
+        <callPriceExternal>0.3</callPriceExternal>
+        <callPriceStationary>0.2</callPriceStationary>
+        <smsPrice>0.15</smsPrice>
+        <parameters>
+            <favNumbers>5</favNumbers>
+            <tariffication>minute</tariffication>
+            <firstFee>5</firstFee>
+        </parameters>
+    </tariff>
+
+    <tariff tariffId="a3455" starting-date="2007-10-12">
+        <name>Lemon</name>
+        <operator>A1</operator>
+        <payroll>6</payroll>
+        <callPriceInternal>0.2</callPriceInternal>
+        <callPriceExternal>0.2</callPriceExternal>
+        <callPriceStationary>0.2</callPriceStationary>
+        <smsPrice>0.2</smsPrice>
+        <parameters>
+            <favNumbers>3</favNumbers>
+            <tariffication>minute</tariffication>
+            <firstFee>5</firstFee>
+        </parameters>
+    </tariff>
+
+    <tariff tariffId="a6788" starting-date="2008-11-11">
+        <name>LemonPlus</name>
+        <operator>A1</operator>
+        <payroll>9</payroll>
+        <callPriceInternal>0.1</callPriceInternal>
+        <callPriceExternal>0.1</callPriceExternal>
+        <callPriceStationary>0.2</callPriceStationary>
+        <smsPrice>0.2</smsPrice>
+        <parameters>
+            <favNumbers>5</favNumbers>
+            <tariffication>minute</tariffication>
+            <firstFee>5</firstFee>
+        </parameters>
+    </tariff>
+
+    <tariff tariffId="a7655" starting-date="2015-12-12">
+        <name>AllWeHave</name>
+        <operator>A1</operator>
+        <payroll>3</payroll>
+        <callPriceInternal>0.3</callPriceInternal>
+        <callPriceExternal>0.3</callPriceExternal>
+        <callPriceStationary>0.3</callPriceStationary>
+        <smsPrice>0.3</smsPrice>
+        <parameters>
+            <favNumbers>3</favNumbers>
+            <tariffication>minute</tariffication>
+            <firstFee>3</firstFee>
+        </parameters>
+    </tariff>
+
+    <tariff tariffId="a1222" starting-date="2015-12-12">
+        <name>NiceOne</name>
+        <operator>Life</operator>
+        <payroll>99</payroll>
+        <callPriceInternal>0.09</callPriceInternal>
+        <callPriceExternal>0.09</callPriceExternal>
+        <callPriceStationary>0.09</callPriceStationary>
+        <smsPrice>0.09</smsPrice>
+        <parameters>
+            <favNumbers>9</favNumbers>
+            <tariffication>twelve_sec</tariffication>
+            <firstFee>0.09</firstFee>
+        </parameters>
+    </tariff>
+
+</tariffs>

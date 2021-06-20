@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema"
+        targetNamespace="http://www.example.com/tariffs"
+        xmlns:tns="http://www.example.com/tariffs"
+        elementFormDefault="qualified">
+    <element name="tariffs">
+        <complexType>
+            <sequence>
+                <element name="tariff" type="tns:Tariff" minOccurs="1" maxOccurs="100"/>
+            </sequence>
+        </complexType>
+    </element>
+
+    <complexType name="Tariff">
+        <sequence>
+            <element name="name" type="string"/>
+            <element name="operator" type="string"/>
+            <element name="payroll" type="decimal"/>
+            <element name="callPriceInternal" type="decimal"/>
+            <element name="callPriceExternal" type="decimal"/>
+            <element name="callPriceStationary" type="decimal"/>
+            <element name="smsPrice" type="decimal"/>
+            <element name="parameters" type="tns:Parameters"/>
+        </sequence>
+        <attribute name="tariffId" type="tns:ID" use="required"/>
+        <attribute name="starting-date" type="date" use="required"/>
+
+    </complexType>
+
+    <simpleType name="ID">
+        <restriction base="ID">
+            <pattern value="[a-zA-Z0-9]{5}"/>
+        </restriction>
+    </simpleType>
+
+    <complexType name="Parameters">
+        <sequence>
+            <element name="favNumbers" type="nonNegativeInteger"/>
+            <element name="tariffication" type="tns:tariffication"/>
+            <element name="firstFee" type="decimal"/>
+        </sequence>
+    </complexType>
+
+    <simpleType name="tariffication">
+        <restriction base="string">
+            <enumeration value="minute"/>
+            <enumeration value="twelve_sec"/>
+        </restriction>
+    </simpleType>
+</schema>
